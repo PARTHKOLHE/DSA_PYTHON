@@ -1,16 +1,3 @@
-""""
-Question: You are tasked with implementing a basic data structure: a singly linked list.
-To accomplish this, you will create two classes, Node and LinkedList.
-The Node class will represent an individual node within the linked list, while the LinkedList class will manage the overall list structure.
-Your implementation should satisfy the following requirements:
-Create a Node class with the following features:
-A constructor that takes a value as an argument and initializes the value attribute of the node.
-A next attribute, initialized to None, which will store a reference to the next node in the list.
-Create a LinkedList class with the following features:
-A constructor that takes a value as an argument, creates a new Node with that value, and initializes the head and tail attributes of the linked list to point to the new node.
-A length attribute, initialized to 1, which represents the current number of nodes in the list.
-
-"""
 class Node:
     def __init__(self, value):
         self.value = value
@@ -20,13 +7,94 @@ class Node:
 class LinkedList:
     def __init__(self, value):
         new_node = Node(value)
-        self.head = new_node 
+        self.head = new_node
         self.tail = new_node
         self.length = 1
 
+    def print_list(self):
+        temp = self.head
+        while temp is not None:
+            print(temp.value)
+            temp = temp.next
+
+    def append(self, value):
+        new_node = Node(value)
+        if self.head is None:
+            self.head = new_node
+            self.tail = new_node
+            return new_node
+
+        else:
+            self.tail.next = new_node
+            self.tail = new_node
+        self.length += 1
+        return True
+
+    def pop(self):
+        if self.head is None:
+            return None
+
+        if self.length == 1:
+            popped = self.head
+            self.length = 0
+            self.head = None
+            self.tail = None
+            return popped
+
+        else:
+            temp = self.head
+            pre = self.head
+            while temp.next is not None:
+                pre = temp
+                temp = temp.next
+        self.tail = pre
+        self.tail.next = None
+        self.length -= 1
+        return temp
+
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.tail is None:
+            self.head = new_node
+            self.tail = new_node
+            self.length += 1
+            return new_node
+
+        else:
+            temp = self.head
+            new_node.next = temp
+            self.head = new_node
+            self.length += 1
+            return True
+
+    def pop_first(self):
+        if self.head is None:
+            return None
+
+        if self.length == 1:
+            popped = self.head
+            self.head = None
+            self.tail = None
+            self.length = 0
+            return popped
+        else:
+            temp = self.head
+            self.head= self.head.next            
+            self.length -= 1
+            return temp
+
 
 my_linked_list = LinkedList(4)
+my_linked_list.append(5)
+my_linked_list.pop()
+my_linked_list.prepend(5)
+my_linked_list.pop_first()
 
+# my_linked_list.pop()
 print('Head:', my_linked_list.head.value)
 print('Tail:', my_linked_list.tail.value)
 print('Length:', my_linked_list.length)
+
+
+print("\nMy_linked_list")
+my_linked_list.print_list()
