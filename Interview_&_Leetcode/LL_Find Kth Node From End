@@ -21,29 +21,16 @@ class LinkedList:
         return True
 
 
-# def find_kth_from_end(ll, k):
-#     fast = ll.head
-#     slow = ll.head
-#     if (k <= 0 or k > 5) or fast == None:
-#         return None
-
-#     else:
-#         while fast != None:
-#             for _ in range(k):
-#                 fast = fast.next
-#             slow = slow.next
-
-#         return slow
-
-# corrected version :
 def find_kth_from_end(ll, k):
-    slow = fast = ll.head
+    fast = ll.head
+    slow = ll.head
+
     for _ in range(k):
         if fast is None:
             return None
         fast = fast.next
 
-    while fast:
+    while fast != None:
         slow = slow.next
         fast = fast.next
 
@@ -55,11 +42,6 @@ my_linked_list.append(2)
 my_linked_list.append(3)
 my_linked_list.append(4)
 my_linked_list.append(5)
-my_linked_list.append(6)
-my_linked_list.append(7)
-my_linked_list.append(8)
-my_linked_list.append(9)
-my_linked_list.append(10)
 
 
 k = 2
