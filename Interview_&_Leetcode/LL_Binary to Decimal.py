@@ -31,9 +31,6 @@ class LinkedList:
             print(" -> ".join(values))
 
     def binary_to_decimal(self):
-        if self.head is None:
-            return None
-
         temp = self.head
         store = temp.value
         while temp.next is not None:
