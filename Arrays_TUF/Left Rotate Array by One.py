@@ -1,15 +1,12 @@
 from typing import List
+
 class Solution:
-    def check(self, nums: List[int]) -> bool:
+    def rotateArrayByOne(self, nums: List[int]) -> List[int]:
+        if not nums:
+            return nums 
+        first = nums[0]
         for i in range (1, len(nums)):
-            if nums[i] > nums[i - 1]:
-                pass
+            nums[i - 1] = nums[i]
             
-            else :
-                break
-        for j in range(i + 1, len(nums)):
-            if (nums[j] - nums[j - 1]) > 1 :
-                return False
-        return True
-        
-        
+        nums[len(nums) - 1] = first
+        return nums
