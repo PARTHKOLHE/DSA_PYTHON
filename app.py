@@ -58,19 +58,41 @@
 # else:
 #     print("Not a palandrome")    
         
-# Upper letters:
-def count_capitals(input_string):
-    count = 0
-    for char in input_string:
-        if char.isupper():
-            count += 1
-    print(f"Number of capital letters: {count}")
+# # Upper letters:
+# def count_capitals(input_string):
+#     count = 0
+#     for char in input_string:
+#         if char.isupper():
+#             count += 1
+#     print(f"Number of capital letters: {count}")
 
-text = input("Enter text: ") 
-count_capitals(text)
+# text = input("Enter text: ") 
+# count_capitals(text)
 
+# # string
+# s = "goodmorning"
+# print(s[2:5])
 
+# # class & meathods exmaples
+# class Employee:
+#     def __init__(s, emp_id, name):
+#         s.emp_id = emp_id
+#         s.name = name
 
+#     def display(s):
+#         print(f"Employee ID: {s.emp_id}, Name: {s.name}")
+
+# # Example usage:
+# emp = Employee(101, "Parth")
+# emp.display()
+
+# # is digit
+# s = "7abc"
+
+# if s and s[0].isdigit():
+#     print("String starts with a digit")
+# else:
+#     print("String does NOT start with a digit")
 
 
 
